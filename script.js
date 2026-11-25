@@ -1,0 +1,7 @@
+document.addEventListener('DOMContentLoaded',()=>{
+ const nav=document.querySelector('.category-nav');const toggle=document.getElementById('menuToggle');if(toggle&&nav)toggle.addEventListener('click',()=>nav.classList.toggle('open'));
+ document.querySelectorAll('.global-search').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const q=form.querySelector('input[name="q"]').value.trim();location.href='shop.html'+(q?'?q='+encodeURIComponent(q):'')}));
+ const params=new URLSearchParams(location.search);const q=(params.get('q')||'').toLowerCase();const local=document.getElementById('productSearch');if(local&&q)local.value=q;
+ const filter=()=>{const term=((local&&local.value)||q).toLowerCase();const cards=[...document.querySelectorAll('#productGrid .product-card')];let count=0;cards.forEach(card=>{const show=card.textContent.toLowerCase().includes(term);card.hidden=!show;if(show)count++});const empty=document.getElementById('emptyProducts');if(empty&&cards.length)empty.hidden=count>0;};if(local){local.addEventListener('input',filter);filter()}
+ const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));const year=document.getElementById('year');if(year)year.textContent=new Date().getFullYear();
+});
