@@ -18,13 +18,3 @@
 .site-footer a:hover{color:#A9CBFF;transform:translateX(3px)}
 .category-card:hover,.product-card:hover{border-color:#8BA9D2;box-shadow:0 18px 42px rgba(11,35,69,.14)}
 .product-tools input:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(18,63,140,.10)}
-/* Custom Logo 500x500 & Transparent Background */
-.custom-logo,
-.main-header .brand img.custom-logo {
-  width: 500px !important;
-  height: 500px !important;
-  max-width: 500px !important;
-  max-height: 500px !important;
-  background: transparent !important;
-  object-fit: contain;
-}
